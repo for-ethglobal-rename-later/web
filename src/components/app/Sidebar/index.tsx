@@ -35,7 +35,7 @@ const Sidebar = () => {
           >
             <div className={'flex items-center gap-2 select-none'}>
               <Image src={'/logo.svg'} alt={'logo'} width={32} height={32} />
-              <p className={'text-[28px]'}>Awesome</p>
+              <p className={'text-[28px]'}>Klados</p>
             </div>
             <button
               onClick={() => setIsOpen(false)}
