@@ -44,7 +44,7 @@ const Creations = () => {
           <p>Creations</p>
         </div>
         {creations.map((creation) => {
-          const isActive = pathname === `/app/creation/${creation.id}`;
+          const isActive = pathname === `/app/c/${creation.id}`;
 
           return (
             <div key={creation.id} className='relative'>
