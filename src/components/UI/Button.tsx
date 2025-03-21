@@ -9,9 +9,10 @@ interface ButtonProps {
   className?: string;
   external?: boolean;
   disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-const Button = ({ children, href, onClick, size = 'md', variant = 'primary', className = '', external = false, disabled = false, ...props }: ButtonProps) => {
+const Button = ({ children, href, onClick, size = 'md', variant = 'primary', className = '', external = false, disabled = false, type = 'button', ...props }: ButtonProps) => {
   const baseStyles = 'flex items-center justify-center gap-2 capitalize transition duration-200 ease-out active:scale-[0.98] select-none tracking-none font-medium cursor-pointer';
 
   const sizeStyles = {
@@ -39,7 +40,7 @@ const Button = ({ children, href, onClick, size = 'md', variant = 'primary', cla
   }
 
   return (
-    <button onClick={disabled ? undefined : onClick} className={combinedStyles} disabled={disabled} {...props}>
+    <button onClick={disabled ? undefined : onClick} type={type} className={combinedStyles} disabled={disabled} {...props}>
       {children}
     </button>
   );
