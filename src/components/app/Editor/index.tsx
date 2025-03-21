@@ -27,7 +27,7 @@ const useEditor = () => {
 
 const EditorProvider = ({ children }: { children: ReactNode }) => {
   const [isConsoleOpen, setIsConsoleOpen] = useState(true);
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(true);
   const [consoleMessages, setConsoleMessages] = useState<string[]>([]);
 
   const toggleConsole = () => setIsConsoleOpen((prev) => !prev);
@@ -52,11 +52,9 @@ const EditorProvider = ({ children }: { children: ReactNode }) => {
 const Editor = ({ id }: { id: string }) => {
   return (
     <EditorProvider>
-      <div className='flex h-full w-full overflow-hidden'>
+      <div className='relative flex h-full w-full overflow-hidden'>
         <div className='flex h-full w-full flex-col'>
-          <div className='h-full w-full'>
-            <CodeEditor id={id} />
-          </div>
+          <CodeEditor id={id} />
           <Console />
         </div>
         <AIChat />

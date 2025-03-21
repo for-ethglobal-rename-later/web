@@ -12,6 +12,12 @@
   --color-neutral-700: #1d1e1f;
   --color-neutral-800: #131414;
   --color-neutral-900: #000000;
+
+  --color-green-900: #4ac569;
+  --color-blue-900: #64d2ff;
+  --color-purple-900: #be78e1;
+  --color-yellow-900: #f9b955;
+  --color-red-900: #f64032;
 }
 
 body {
