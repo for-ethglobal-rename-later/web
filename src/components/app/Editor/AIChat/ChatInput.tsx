@@ -21,7 +21,7 @@ const ChatInput = ({ onSendMessage, isLoading }: ChatInputProps) => {
 
   return (
     <form onSubmit={handleSubmit} className='flex h-fit w-full flex-none p-1.5'>
-      <div className={'box-border flex w-full flex-col gap-4 rounded-[6px] border border-neutral-100/10 bg-gradient-to-br from-yellow-900/[6%] via-purple-900/[6%] to-blue-900/[6%] px-4 py-3 outline outline-neutral-800'}>
+      <div className={'box-border flex w-full flex-col gap-4 rounded-[6px] border border-neutral-100/10 bg-gradient-to-br from-yellow-900/10 via-purple-900/10 to-blue-900/10 px-4 py-3 outline outline-neutral-800'}>
         <input placeholder={'Ask anything...'} type={'text'} className={'w-full outline-none'} value={inputText} onChange={(e) => setInputText(e.target.value)} />
         <div className={'flex w-full items-center justify-between text-neutral-300'}>
           <IconPaperclip />

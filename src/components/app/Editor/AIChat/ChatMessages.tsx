@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface Message {
   id: string;
@@ -8,9 +9,10 @@ interface Message {
 
 interface ChatMessagesProps {
   messages: Message[];
+  loading: boolean;
 }
 
-const ChatMessages = ({ messages }: ChatMessagesProps) => {
+const ChatMessages = ({ messages, loading }: ChatMessagesProps) => {
   const chatRef = useRef<HTMLDivElement>(null);
   const [isUserAtBottom, setIsUserAtBottom] = useState(true);
 
@@ -39,10 +41,12 @@ const ChatMessages = ({ messages }: ChatMessagesProps) => {
   return (
     <div ref={chatRef} onScroll={handleScroll} className='flex h-full w-full flex-col overflow-y-scroll p-1.5'>
       {messages.map((msg) => (
-        <div key={msg.id} className={`mb-2 flex w-full items-center rounded p-3 text-white first:mt-auto ${msg.sender === 'ai' ? 'bg-blue-900' : 'ml-auto bg-green-900'}`}>
-          {msg.text}
-        </div>
+        <motion.div key={msg.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className={`mb-1.5 rounded-[6px] px-4 py-3 text-[16px] leading-[24px] text-neutral-100 first:mt-auto ${msg.sender === 'ai' ? 'mr-auto' : 'ml-auto bg-neutral-600'}`}>
+          <p className='w-full overflow-hidden overflow-ellipsis'>{msg.text}</p>
+        </motion.div>
       ))}
+
+      {loading && <motion.div className={'mb-1.5 animate-pulse rounded-[6px] px-4 py-3 text-[16px] leading-[24px] text-neutral-100'}>Thinking...</motion.div>}
     </div>
   );
 };

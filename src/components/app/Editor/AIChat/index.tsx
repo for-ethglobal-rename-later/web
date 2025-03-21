@@ -18,11 +18,7 @@ interface Message {
 
 const index = () => {
   const { isChatOpen, toggleChat } = useEditor();
-  const [messages, setMessages] = useState<Message[]>([
-    { id: '1', text: 'Merhaba!', sender: 'ai' },
-    { id: '2', text: 'Nasılsın?', sender: 'ai' },
-    { id: '3', text: 'Bu bir test mesajıdır.', sender: 'ai' },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([{ id: '1', text: 'Hello world!', sender: 'ai' }]);
   const [isLoading, setIsLoading] = useState(false);
 
   const sendMessage = async (text: string) => {
@@ -77,7 +73,7 @@ const index = () => {
             </Button>
           </div>
           <div className='flex h-[calc(100%-50px)] w-full flex-col'>
-            <ChatMessages messages={messages} />
+            <ChatMessages loading={isLoading} messages={messages} />
             <ChatInput onSendMessage={sendMessage} isLoading={isLoading} />
           </div>
         </div>

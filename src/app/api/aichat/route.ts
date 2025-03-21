@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   const { message } = await req.json();
-  const reply = 'Bu otomatik bir yanıttır. Tüm mesajlara aynı yanıt gönderilmektedir.';
-  await new Promise((resolve) => setTimeout(resolve, 500));
+  const reply = 'The AI chatbot is still in the development phase. I am unable to assist you at the moment.';
+  await new Promise((resolve) => setTimeout(resolve, 5000));
   return NextResponse.json({ reply });
 }
