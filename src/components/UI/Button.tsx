@@ -21,7 +21,7 @@ const Button = ({ children, href, onClick, size = 'md', variant = 'primary', cla
   };
 
   const variantStyles = {
-    primary: 'bg-neutral-100 text-neutral-900 hover:bg-neutral-200 outline outline-1 outline-neutral-300',
+    primary: 'bg-neutral-100 text-neutral-900 hover:bg-neutral-200',
     secondary: 'bg-neutral-500 outline outline-1 outline-neutral-400 text-neutral-200 hover:bg-neutral-400',
     plain: 'bg-transparent text-neutral-200 hover:text-neutral-100 outline-none',
   };
