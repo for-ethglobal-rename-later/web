@@ -17,6 +17,7 @@ const Index = () => {
           width: isChatOpen ? '33%' : '0',
         }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
+        className='flex-none'
       />
       <motion.div
         initial={{ translateX: 0 }}
