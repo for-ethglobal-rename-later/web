@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import useSidebarStore from '@/store/sidebarStore';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -12,7 +12,7 @@ import Profile from './Profile';
 import Button from '@/components/UI/Button';
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const { isOpen, close, open } = useSidebarStore();
 
   return (
     <>
@@ -37,7 +37,7 @@ const Sidebar = () => {
                 <Image src={'/logo.svg'} alt={'logo'} width={32} height={32} />
                 <p className={'text-[28px]'}>Klados</p>
               </div>
-              <Button variant={'plain'} size={'Icon'} onClick={() => setIsOpen(false)} className={'text-[24px]!'}>
+              <Button variant={'plain'} size={'Icon'} onClick={close} className={'text-[24px]!'}>
                 <IconSidebar />
               </Button>
             </div>
@@ -48,7 +48,7 @@ const Sidebar = () => {
         </div>
       </motion.aside>
       {!isOpen && (
-        <Button variant={'plain'} size={'Icon'} onClick={() => setIsOpen(true)} className={'fixed top-[22px] left-[22px] z-50 text-[24px]!'}>
+        <Button variant={'plain'} size={'Icon'} onClick={open} className={'fixed top-[22px] left-[22px] z-50 text-[24px]!'}>
           <IconSidebar />
         </Button>
       )}
