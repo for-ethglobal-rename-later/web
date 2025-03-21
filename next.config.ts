@@ -4,7 +4,15 @@ const nextConfig: NextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack'],
+      issuer: /\.[jt]sx?$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            icon: true,
+          },
+        },
+      ],
     });
     return config;
   },
@@ -12,8 +20,15 @@ const nextConfig: NextConfig = {
     turbo: {
       rules: {
         '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.ts',
+          loaders: [
+            {
+              loader: '@svgr/webpack',
+              options: {
+                icon: true,
+              },
+            },
+          ],
+          as: '*.tsx',
         },
       },
     },
