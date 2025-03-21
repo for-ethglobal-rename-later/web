@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import Button from '@/components/UI/Button';
+
+import IconPaperclip from '@/../public/icons/paperclip.svg';
+import IconEnter from '@/../public/icons/enter.svg';
 
 interface ChatInputProps {
   onSendMessage: (message: string) => void;
@@ -18,11 +20,17 @@ const ChatInput = ({ onSendMessage, isLoading }: ChatInputProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='flex w-full flex-none items-center justify-between gap-2 bg-neutral-800 p-3'>
-      <input type='text' value={inputText} onChange={(e) => setInputText(e.target.value)} placeholder='Mesajınızı yazın...' className='w-full flex-1 rounded bg-neutral-700 px-3 py-2 text-white' disabled={isLoading} />
-      <Button type='submit' disabled={isLoading || !inputText.trim()} className='rounded bg-blue-500 px-4 py-2 text-white disabled:bg-blue-800 disabled:opacity-50'>
-        {isLoading ? 'Gönderiliyor...' : 'Gönder'}
-      </Button>
+    <form onSubmit={handleSubmit} className='flex h-fit w-full flex-none p-1.5'>
+      <div className={'box-border flex w-full flex-col gap-4 rounded-[6px] border border-neutral-100/10 bg-gradient-to-br from-yellow-900/[6%] via-purple-900/[6%] to-blue-900/[6%] px-4 py-3 outline outline-neutral-800'}>
+        <input placeholder={'Ask anything...'} type={'text'} className={'w-full outline-none'} value={inputText} onChange={(e) => setInputText(e.target.value)} />
+        <div className={'flex w-full items-center justify-between text-neutral-300'}>
+          <IconPaperclip />
+          <button type={'submit'} className={'flex cursor-pointer items-center gap-1.5 font-medium transition ease-out hover:text-neutral-100 disabled:text-neutral-300! disabled:opacity-50!'} disabled={isLoading || inputText.trim().length < 3}>
+            <IconEnter />
+            Send
+          </button>
+        </div>
+      </div>
     </form>
   );
 };
