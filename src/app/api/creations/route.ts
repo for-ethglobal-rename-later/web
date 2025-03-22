@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-let creations = [
+const creations = [
   { id: '1', title: 'my first little creation' },
   { id: '2', title: 'another cool project' },
   { id: '3', title: 'awesome AI experiment' },

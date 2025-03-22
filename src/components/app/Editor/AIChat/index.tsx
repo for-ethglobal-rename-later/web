@@ -16,7 +16,7 @@ interface Message {
   sender: 'user' | 'ai';
 }
 
-const index = () => {
+const AiChat = () => {
   const { isChatOpen, toggleChat } = useEditor();
   const [messages, setMessages] = useState<Message[]>([{ id: '1', text: 'Hello world!', sender: 'ai' }]);
   const [isLoading, setIsLoading] = useState(false);
@@ -82,4 +82,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default AiChat;
