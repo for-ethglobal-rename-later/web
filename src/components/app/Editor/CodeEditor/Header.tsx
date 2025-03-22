@@ -27,7 +27,6 @@ const Header = () => {
         <p className={'max-w-52 overflow-hidden text-[14px] leading-[20px] overflow-ellipsis'}>Here Comes The Title</p>
         <IconDots className={'cursor-pointer text-neutral-300'} />
       </motion.div>
-      <div className={'absolute top-[51px] left-0 h-5 w-full bg-gradient-to-b from-neutral-700 to-neutral-700/0'}></div>
       <div className={'ml-auto flex items-center gap-3'}>
         {!isChatOpen && (
           <Button onClick={toggleChat} size={'Icon'} variant={'secondary'}>

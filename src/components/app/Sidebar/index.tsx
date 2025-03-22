@@ -19,7 +19,7 @@ const Sidebar = () => {
       <motion.aside
         initial={{ width: 288 }}
         animate={{
-          width: isOpen ? 288 : 16,
+          width: isOpen ? 288 : 12,
         }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
         className='relative flex h-screen flex-none flex-col overflow-hidden'

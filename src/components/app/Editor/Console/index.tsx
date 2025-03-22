@@ -16,7 +16,7 @@ const Index = () => {
         translateY: isConsoleOpen ? 0 : 220,
       }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
-      className={'absolute bottom-0 h-[280px] w-full bg-neutral-700'}
+      className={'absolute bottom-0 z-[100] h-[280px] w-full bg-neutral-700'}
     >
       <div className={'flex h-[50px] w-full items-center justify-between bg-neutral-700 px-5 pt-2.5'}>
         <div className={'flex items-center gap-3 [&>svg]:text-blue-900'}>
